@@ -28,6 +28,20 @@
 
   </header>
 
+
+
+
+
+
+  <footer class="foot">
+
+    <div class="logos">
+      <img src="/cput.png" alt="" class="cputLogo"></img>
+      <img src="/HTGS.png" alt="" class="companyLogo"></img>
+    </div>
+
+  </footer>
+
 </template>
 
 
@@ -137,5 +151,49 @@ body {
   width: 100px;
   transition: ease-in-out 0.4s;
   cursor: pointer;
+}
+
+.profile-cover:hover {
+  width: 100px;
+  transition: ease-in-out 0.3s;
+  cursor: pointer;
+}
+
+
+
+
+
+.foot {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  background: linear-gradient(to top, white, transparent);
+  color: white;
+  text-align: center;
+  padding: 20px;
+  z-index: 1000;
+}
+
+
+.cputLogo {
+  width: 160px;
+  height: 80px;
+}
+
+.companyLogo {
+  width: 140px;
+  height: 60px;
+}
+
+.logos {
+  display: flex;
+  gap: 77%;
+}
+
+.schedules:hover {
+  cursor: pointer;
+  transform: scale(2px);
 }
 </style>
