@@ -29,7 +29,15 @@
   </header>
 
 
+  <body class="body-structure">
 
+    <div class="imagePlacement">
+      <img src="/CPUT_0.jpg" alt="" class="busImage"></img>
+    </div>
+    <h1 class="firstWords"></h1>
+    <button class="bookingPage">Book Now !</button>
+
+  </body>
 
 
 
@@ -52,7 +60,9 @@
 <style>
 html,
 body {
+  height: 100%;
   background-color: #319AC4;
+  margin: 0;
 }
 
 .head {
@@ -60,7 +70,7 @@ body {
   padding: 15px 30px;
   align-items: center;
   justify-content: space-between;
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   width: 100%;
@@ -70,6 +80,33 @@ body {
   box-sizing: border-box;
   gap: 50px;
   color: white;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+.body-structure {
+  justify-content: center;
+  align-content: normal;
+}
+
+main {
+  flex: 1;
+}
+
+.bookingPage {
+  width: 100px;
+  height: 50px;
+  text-align: center;
+}
+
+.imagePlacement {
+  margin-top: -80px;
+  width: 100%;
+  height: 200px;
+
 }
 
 .right-links {
@@ -161,10 +198,10 @@ body {
 
 
 
-
+/*--------Footer Css------*/
 
 .foot {
-  position: fixed;
+  position: absolute;
   bottom: 0;
   left: 0;
   width: 100%;
@@ -194,6 +231,10 @@ body {
 
 .schedules:hover {
   cursor: pointer;
-  transform: scale(2px);
+  background-color: none;
+}
+
+.about:hover {
+  cursor: pointer;
 }
 </style>
