@@ -1,4 +1,4 @@
-package za.ca.cput.domain;
+package za.ca.cput.domain.enums;
 
 public enum ShuttleStatus {
     AVAILABLE("Available"),

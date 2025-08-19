@@ -1,5 +1,7 @@
 package za.ca.cput.domain;
 
+import za.ca.cput.domain.enums.ShuttleStatus;
+
 public class Shuttle {
     private Long shuttleId;
     private int capacity;
