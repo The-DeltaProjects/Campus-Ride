@@ -1,5 +1,7 @@
 package za.ca.cput.domain;
 
+import za.ca.cput.domain.enums.ShuttleOperatorStatus;
+
 import java.time.LocalDateTime;
 
 public class ShuttleOperator extends User{
