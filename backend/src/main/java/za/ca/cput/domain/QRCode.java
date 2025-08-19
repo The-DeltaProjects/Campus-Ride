@@ -2,16 +2,16 @@ package za.ca.cput.domain;
 
 import java.util.Arrays;
 
-public class QrCode {
+public class QRCode {
     private String data;
     private String format;
     private byte[] image;
 
-    protected QrCode() {
+    protected QRCode() {
         // Default constructor for JPA
     }
 
-    private QrCode(Builder builder) {
+    private QRCode(Builder builder) {
         this.data = builder.data;
         this.format = builder.format;
         this.image = builder.image;
@@ -65,8 +65,8 @@ public class QrCode {
             return this;
         }
 
-        public QrCode build() {
-            return new QrCode(this);
+        public QRCode build() {
+            return new QRCode(this);
         }
     }
 }
