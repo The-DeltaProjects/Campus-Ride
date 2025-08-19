@@ -1,31 +1,42 @@
 package za.ca.cput.domain;
 
-public class Admin extends User{
-    private Long adminId;
-    private Schedule managedSchedule;
+public class Student extends User{
+    private String studentNumber;
+    private Boking bookings;
+    private Feedback feedback;
 
-    protected Admin() {
-
+    protected Student() {
     }
 
-    private Admin(Builder builder) {
-        this.adminId = builder.adminId;
-        this.managedSchedule = builder.managedSchedule;
+    private Student(Builder builder) {
+        this.studentNumber = builder.studentNumber;
+        this.bookings = builder.bookings;
+        this.feedback = builder.feedback;
+        this.userId = builder.userId;
+        this.firstName = builder.firstName;
+        this.lastName = builder.lastName;
+        this.email = builder.email;
+        this.password = builder.password;
+        this.notifications = builder.notifications;
     }
 
-    public Long getAdminId() {
-        return adminId;
+    public String getStudentNumber() {
+        return studentNumber;
     }
 
-    public Schedule getManagedSchedule() {
-        return managedSchedule;
+    public Boking getBookings() {
+        return bookings;
+    }
+    public Feedback getFeedback() {
+        return feedback;
     }
 
     @Override
     public String toString() {
-        return "Admin{" +
-                "adminId=" + adminId +
-                ", managedSchedule=" + managedSchedule +
+        return "Student{" +
+                "studentNumber='" + studentNumber + '\'' +
+                ", bookings=" + bookings +
+                ", feedback=" + feedback +
                 ", userId=" + userId +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
@@ -36,8 +47,9 @@ public class Admin extends User{
     }
 
     public static class Builder {
-        private Long adminId;
-        private Schedule managedSchedule;
+        private String studentNumber;
+        private Booking booking;
+        private Feedback feedback;
         private Long userId;
         private String firstName;
         private String lastName;
@@ -45,13 +57,18 @@ public class Admin extends User{
         private String password;
         private Notifications notifications;
 
-        public Builder adminId(Long adminId) {
-            this.adminId = adminId;
+        public Builder studentNumber(String studentNumber) {
+            this.studentNumber = studentNumber;
             return this;
         }
 
-        public Builder managedSchedule(Schedule managedSchedule) {
-            this.managedSchedule = managedSchedule;
+        public Builder bookings(Booking bookings) {
+            this.bookings = bookings;
+            return this;
+        }
+
+        public Builder feedback(Feedback feedback) {
+            this.feedback = feedback;
             return this;
         }
 
@@ -86,8 +103,9 @@ public class Admin extends User{
         }
 
         public Builder copy(Builder builder){
-            this.adminId = builder.adminId;
-            this.managedSchedule = builder.managedSchedule;
+            this.studentNumber = builder.studentNumber;
+            this.bookings = builder.bookings;
+            this.feedback = builder.feedback;
             this.userId = builder.userId;
             this.firstName = builder.firstName;
             this.lastName = builder.lastName;
@@ -97,14 +115,8 @@ public class Admin extends User{
             return this;
         }
 
-        public Admin build() {
-            return new Admin(this);
+        public Student build() {
+            return new Student(this);
         }
-
     }
 }
-
-
-
-
-]
