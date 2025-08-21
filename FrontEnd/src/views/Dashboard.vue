@@ -41,12 +41,27 @@
                 </div>
 
                 <div class="icon-elements">
+                    <img src="/line.png" alt="" class="line">
+                </div>
+
+                <div class="icon-elements">
                     <img src="/exit.png" alt="" class="exit-icon">
                     <h1 class="exit-label">Log Out</h1>
                 </div>
             </div>
         </div>
     </div>
+
+    <div class="left-elements">
+        <img src="/filter.png" alt="" class="filter"></img>
+        <h2 class="sort-by">Sort-by</h2>
+    </div>
+
+    <div class="search-elements">
+        <h2 class="search">Search </h2>
+        <input type="text" value="" class="search-bar">
+    </div>
+
 
 </template>
 
@@ -69,13 +84,64 @@ export default {
 
 
 .logo {
+    display: flex;
+    top: 10%;
     text-align: center;
     justify-content: center;
-    width: 300px;
-    height: 120px;
-    margin-left: 100%;
+    width: 270px;
+    height: 80px;
+    margin-left: 50%;
     z-index: 999;
-    background-color: black;
+}
+
+.search-elements {
+    display: inline-flex;
+    position: absolute;
+    left: 80%;
+    top: 10%;
+    z-index: 2;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+}
+
+.search {
+    font-family: "Katibeh", serif;
+    font-size: 25px;
+    z-index: 2;
+    color: rgb(255, 255, 255);
+    align-items: normal;
+}
+
+.search-bar {
+    height: 30px;
+    border-radius: 50px;
+    width: 200px;
+}
+
+.left-elements {
+    display: inline-flex;
+    position: absolute;
+    top: 13%;
+    left: 23%;
+    gap: 10%;
+    width: 150px;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+.filter {
+    display: flex;
+    width: 30px;
+    height: 30px;
+}
+
+.sort-by {
+    font-family: serif;
+    display: flex;
+    font-size: 20px;
+
 }
 
 .leftPanel {
@@ -127,11 +193,18 @@ export default {
     margin-left: 10px;
 }
 
+.line {
+    z-index: 1;
+    width: 250px;
+    height: 8px;
+    margin-top: 20px;
+}
+
 .exit-icon {
     width: 30px;
     height: 30px;
     z-index: 1;
-    margin-top: 70px;
+    margin-top: -20px;
 }
 
 .label {
@@ -148,12 +221,12 @@ export default {
     font-size: 20px;
     margin-left: 15px;
     z-index: 2;
-    margin-top: 70px;
+    margin-top: -20px;
 }
 
 .label:hover {
     cursor: pointer;
-    transform: scale(1.06);
+    transform: scale(1.26);
     transform-origin: left center;
     text-decoration: none;
     background-color: none;

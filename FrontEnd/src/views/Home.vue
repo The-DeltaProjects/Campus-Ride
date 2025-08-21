@@ -33,9 +33,10 @@
 
         <main class="body-structure">
 
-            <h1 class="home-slogan">A way to get to any<br>campus, fast!</h1>
+
 
             <div class="image-gradient">
+                <h1 class="home-slogan">A way to get to any<br>campus, fast!</h1>
                 <img src="/home-background.jpeg" alt="" class="background-image"></img>
             </div>
 
@@ -131,8 +132,8 @@ main {
     text-align: center;
     justify-content: center;
     border-radius: 50px;
-    margin-left: 70%;
-    margin-top: -10%;
+    margin-left: 75%;
+    margin-top: -7%;
     background-color: white;
     color: rgb(43, 43, 43);
     z-index: 1000;
@@ -168,11 +169,15 @@ main {
 }
 
 .home-slogan {
+    position: absolute;
+    top: 50%;
+    left: 20%;
+    transform: translate(-50%, -50%);
     font-family: 'Caprasimo', sans-serif;
-    display: flex;
-    flex-direction: column;
-    z-index: 999;
-
+    font-size: 40px;
+    color: white;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+    z-index: 2;
 }
 
 .image-gradient::after {
