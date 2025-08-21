@@ -1,28 +1,52 @@
 <template>
-    <link href="https://fonts.googleapis.com/css2?family=Kavoon&display=swap" rel="stylesheet">
 
-    <img src="/campus-logo.png" alt="" class="logo"></img>
+    <div class="dashboard-page">
 
-    <div class="leftPanel">
-        <h2 class="dash">Dashboard</h2>
-        <div class="navigation">
-            <div class="icon-covers">
-                <img src="/new-moon.png" alt="" class="cover1"></img>
-                <img src="/new-moon.png" alt="" class="cover1"></img>
-                <img src="/new-moon.png" alt="" class="cover1"></img>
-                <img src="/new-moon.png" alt="" class="cover1"></img>
-                <img src="/new-moon.png" alt="" class="cover1"></img>
-            </div>
-            <div class="dash-icons">
-                <img src="/home.png" alt="" class="homeIcon"></img>
-                <img src="/profile-logo.png" alt="" class="profileIcon"></img>
-                <img src="/schedule.png" alt="" class="scheduleIcon"></img>
-                <img src="/info.png" alt="" class="aboutIcon"></img>
-                <img src="/help.png" alt="" class="helpIcon"></img>
+        <link href="https://fonts.googleapis.com/css2?family=Kavoon&display=swap" rel="stylesheet">
+
+        <img src="/campus-logo.png" alt="" class="logo">
+
+        <div class="leftPanel">
+            <h2 class="dash">Dashboard</h2>
+
+            <div class="navigation">
+                <div class="icon-elements">
+                    <img src="/new-moon.png" alt="" class="cover">
+                    <img src="/home.png" alt="" class="icon">
+                    <router-link to="/" class="label">Home</router-link>
+                </div>
+
+                <div class="icon-elements">
+                    <img src="/new-moon.png" alt="" class="cover">
+                    <img src="/profile-logo.png" alt="" class="icon">
+                    <router-link to="/profile" class="label">Profile</router-link>
+                </div>
+
+                <div class="icon-elements">
+                    <img src="/new-moon.png" alt="" class="cover">
+                    <img src="/schedule.png" alt="" class="icon">
+                    <router-link to="/schedule" class="label">Schedule</router-link>
+                </div>
+
+                <div class="icon-elements">
+                    <img src="/new-moon.png" alt="" class="cover">
+                    <img src="/info.png" alt="" class="icon">
+                    <router-link to="/info" class="label">Info</router-link>
+                </div>
+
+                <div class="icon-elements">
+                    <img src="/new-moon.png" alt="" class="cover">
+                    <img src="/help.png" alt="" class="icon">
+                    <router-link to="/help" class="label">Help</router-link>
+                </div>
+
+                <div class="icon-elements">
+                    <img src="/exit.png" alt="" class="exit-icon">
+                    <h1 class="exit-label">Log Out</h1>
+                </div>
             </div>
         </div>
     </div>
-
 
 </template>
 
@@ -32,87 +56,106 @@ export default {
 }
 </script>
 
-<style>
-html,
-body {
-    text-align: center;
-    height: 100%;
+<style scoped>
+.dashboard-page {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
     background-color: #BABABA;
+    z-index: 0;
 }
 
+
 .logo {
-    position: absolute;
-    top: 20px;
-    left: 56%;
-    transform: translateX(-50%);
-    width: 400px;
-    height: 90px;
+    text-align: center;
+    justify-content: center;
+    width: 300px;
+    height: 120px;
+    margin-left: 100%;
+    z-index: 999;
+    background-color: black;
 }
 
 .leftPanel {
     position: fixed;
-    top: 0px;
+    top: 0;
     left: 0;
     width: 350px;
-    height: 950px;
-    display: flex;
-    justify-content: center;
-    text-align: center;
+    height: 100vh;
     background: linear-gradient(to right, black, #319AC4);
+    padding-top: 80px;
+    text-align: center;
 }
 
 .dash {
     font-family: "Kavoon", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
     font-size: 40px;
-    margin-top: 130px;
-}
-
-.dash-icons {
-    display: grid;
-    gap: 102px;
-    margin-top: -625px;
-    margin-left: -220px;
-    z-index: 1000;
-}
-
-.icon-covers {
-    display: grid;
-    gap: 60px;
-    margin-top: 250px;
-    margin-left: -240px;
-}
-
-.cover1 {
-    width: 80px;
-    height: 80px;
-}
-
-.homeIcon {
-    width: 40px;
-    height: 40px;
-    margin-top: 2px;
-}
-
-.profileIcon {
-    width: 40px;
-    height: 40px;
+    color: white;
+    margin-bottom: 40px;
 
 }
 
-.scheduleIcon {
-    width: 40px;
-    height: 40px;
+.navigation {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    align-items: flex-start;
+    padding-left: 40px;
 }
 
-.aboutIcon {
-    width: 40px;
-    height: 40px;
-    margin-top: -3px;
+.icon-elements {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    position: relative;
 }
 
-.helpIcon {
-    width: 40px;
-    height: 40px;
-    margin-top: -3px;
+.cover {
+    width: 70px;
+    height: 70px;
+    position: absolute;
+    left: -10px;
+    z-index: 0;
+}
+
+.icon {
+    width: 30px;
+    height: 30px;
+    z-index: 1;
+    margin-left: 10px;
+}
+
+.exit-icon {
+    width: 30px;
+    height: 30px;
+    z-index: 1;
+    margin-top: 70px;
+}
+
+.label {
+    color: white;
+    font-size: 20px;
+    margin-left: 15px;
+    z-index: 999;
+    display: inline-block;
+    transition: transform .2s ease, color .2s ease;
+}
+
+.exit-label {
+    color: white;
+    font-size: 20px;
+    margin-left: 15px;
+    z-index: 2;
+    margin-top: 70px;
+}
+
+.label:hover {
+    cursor: pointer;
+    transform: scale(1.06);
+    transform-origin: left center;
+    text-decoration: none;
+    background-color: none;
 }
 </style>
