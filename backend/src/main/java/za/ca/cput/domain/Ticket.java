@@ -7,7 +7,7 @@ public class Ticket {
     private LocalDateTime issuedDate;
     private boolean isVerified;
     private Booking booking;
-    private QrCode qrCode;
+    private QRCode qrCode;
 
     protected Ticket() {
 
