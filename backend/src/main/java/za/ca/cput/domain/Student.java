@@ -2,7 +2,7 @@ package za.ca.cput.domain;
 
 public class Student extends User{
     private String studentNumber;
-    private Boking bookings;
+    private Booking bookings;
     private Feedback feedback;
 
     protected Student() {
@@ -24,7 +24,7 @@ public class Student extends User{
         return studentNumber;
     }
 
-    public Boking getBookings() {
+    public Booking getBookings() {
         return bookings;
     }
     public Feedback getFeedback() {
@@ -48,7 +48,7 @@ public class Student extends User{
 
     public static class Builder {
         private String studentNumber;
-        private Booking booking;
+        private Booking bookings;
         private Feedback feedback;
         private Long userId;
         private String firstName;

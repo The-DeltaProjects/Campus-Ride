@@ -50,5 +50,10 @@ public class Helper {
         return rating >= 1 && rating <= 5;
     }
 
+    //Phone number validation South African format
+    public static boolean isValidPhoneNumber(String phoneNumber) {
+        return phoneNumber != null && phoneNumber.matches("^\\+27\\d{9}$");
+    }
+
 
 }
