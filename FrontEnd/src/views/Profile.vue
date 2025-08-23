@@ -65,9 +65,20 @@
 
     </div>
 
-    <div class="line-breaker">
+    <div class="line-breaker"></div>
+
+    <div class="boxes">
+        <div class="left-box">
+            <h2 class="profile-name">Gift Fernando</h2>
+            <img src="/profile-image.jpg" alt="" class="profile-image"></img>
+        </div>
+        <div class="right-box">
+            <h2 class="bio-label">Bio & other details</h2>
+        </div>
+
     </div>
 
+    <div class="line-breaker2"></div>
 
 
     <div class="footer-logos">
@@ -140,13 +151,69 @@ body {
 
 }
 
+.boxes {
+    display: inline-flex;
+    position: fixed;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    width: 1186px;
+    height: 300px;
+    left: 22.8%;
+    top: 20%;
+    gap: 5%;
+    z-index: 999;
+}
+
+.left-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.137);
+    border: white solid 2px;
+    border-radius: 20px;
+    width: 45%;
+    height: 90%;
+    gap: 10%;
+    color: white;
+}
+
+.right-box {
+    display: flex;
+    flex-direction: row;
+    background-color: rgba(0, 0, 0, 0.137);
+    border: white solid 2px;
+    border-radius: 20px;
+    width: 45%;
+    height: 90%;
+    color: white;
+}
+
+.profile-image {
+    border-radius: 50%;
+    width: 200px;
+    height: 300px;
+}
+
+.line-breaker2 {
+    display: inline-flex;
+    position: absolute;
+    justify-content: center;
+    width: 70%;
+    height: 1.5px;
+    background-color: white;
+    left: 26%;
+    top: 87%;
+
+}
+
 .profile-page {
     position: fixed;
     top: 0;
     left: 0;
     width: 100vw;
     height: 100vh;
-    background-color: #E3E3E3;
+    background-color: #C8C8C8;
     z-index: 0;
 }
 
@@ -163,7 +230,7 @@ body {
     position: fixed;
     top: 0;
     left: 0;
-    width: 350px;
+    width: 270px;
     height: 100vh;
     background: linear-gradient(to right, black, #319AC4);
     padding-top: 80px;
@@ -221,7 +288,7 @@ body {
 
 .line {
     z-index: 1;
-    width: 250px;
+    width: 200px;
     height: 8px;
     margin-top: 20px;
 }
@@ -236,7 +303,7 @@ body {
 }
 
 .label:hover::after {
-    background-color: white;
+    background-color: transparent;
     transition: ease-out .4s;
 }
 
@@ -253,7 +320,7 @@ body {
     transform: scale(1.26);
     transform-origin: left center;
     text-decoration: none;
-    background-color: none;
+    background-color: transparent;
 }
 
 
@@ -272,16 +339,17 @@ body {
 }
 
 .cput-logo {
-    width: 224px;
-    height: 80px;
-    margin-left: 3;
+
+    width: 144px;
+    height: 60px;
+    left: 10%;
 }
 
 .company-logo {
     display: flex;
     position: fixed;
-    width: 209px;
-    height: 67px;
+    width: 129px;
+    height: 50px;
     left: 85%;
     top: 90%;
 }

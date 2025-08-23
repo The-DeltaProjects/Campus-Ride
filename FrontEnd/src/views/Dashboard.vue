@@ -229,6 +229,6 @@ export default {
     transform: scale(1.26);
     transform-origin: left center;
     text-decoration: none;
-    background-color: none;
+    background-color: transparent;
 }
 </style>

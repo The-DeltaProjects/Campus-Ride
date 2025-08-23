@@ -13,21 +13,22 @@
 
             <div class="left-links">
 
-                <a href="" class="about">About</a>
-                <a href="" class="schedules">Schedules</a>
+                <router-link to="/about" class="link">About</router-link>
+                <router-link to="/schedules" class="link">Schedules</router-link>
 
             </div>
 
             <img src="/campus-logo.png" alt="" class="main-logo" />
 
             <div class="right-links">
-                <router-link to="/dashboard" class="dashboard">Dashboard</router-link>
-                <a href="" class="help">Help/Faq</a>
+                <router-link to="/dashboard" class="link">Dashboard</router-link>
+                <router-link class="link">Help/Faq</router-link>
             </div>
 
             <div class="profile">
                 <button class="profile-cover"></button>
-                <router-link to="/profile"><img src="/profile-logo.png" alt="" class="profile-button" /></router-link>
+                <router-link to="/profile" class="link"><img src="/profile-logo.png" alt=""
+                        class="profile-button" /></router-link>
             </div>
         </header>
 
@@ -41,7 +42,9 @@
             </div>
 
             <div class="book-cover">
-                <h2 class="book-button">Book Now !</h2>
+                <router-link to="/book" class="link">
+                    <h2 class="book-button">Book Now !</h2>
+                </router-link>
             </div>
 
         </main>
@@ -194,9 +197,17 @@ main {
     z-index: 100;
 }
 
-.dashboard {
+.link {
     text-decoration: none;
     color: white;
+}
+
+.link:hover {
+    cursor: pointer;
+    transform: scale(1.26);
+    transform-origin: center;
+    text-decoration: none;
+    background-color: transparent;
 }
 
 .help {
@@ -209,15 +220,6 @@ main {
     gap: 80px;
 }
 
-.about {
-    text-decoration: none;
-    color: white;
-}
-
-.schedules {
-    text-decoration: none;
-    color: white;
-}
 
 .menu {
     position: relative;
