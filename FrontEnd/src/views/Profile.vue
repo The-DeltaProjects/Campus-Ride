@@ -20,7 +20,7 @@
 
                 <div class="icon-elements">
                     <img src="/new-moon.png" alt="" class="cover">
-                    <img src="/dashboard-logo.png" alt="" class="icon">
+                    <img src="/dashboard.png" alt="" class="icon">
                     <router-link to="/dashboard" class="label">Dashboard</router-link>
                 </div>
 
