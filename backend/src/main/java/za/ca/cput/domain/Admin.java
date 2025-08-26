@@ -11,6 +11,12 @@ public class Admin extends User{
     private Admin(Builder builder) {
         this.adminId = builder.adminId;
         this.managedSchedule = builder.managedSchedule;
+        this.userId = builder.userId;
+        this.firstName = builder.firstName;
+        this.lastName = builder.lastName;
+        this.email = builder.email;
+        this.password = builder.password;
+        this.notifications = builder.notifications;
     }
 
     public Long getAdminId() {

@@ -43,9 +43,8 @@ public class Notifications {
 
     @Override
     public String toString() {
-        return "Notifications{" +
-                "notificationId=" + notificationId +
-                ", title='" + title + '\'' +
+        return "Notification{" +
+                "title='" + title + '\'' +
                 ", message='" + message + '\'' +
                 ", sentTime=" + sentTime +
                 ", isRead=" + isRead +

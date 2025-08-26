@@ -46,7 +46,7 @@ public class Shuttle {
         return "Shuttle{" +
                 "shuttleId=" + shuttleId +
                 ", capacity=" + capacity +
-                ", shuttleOperator=" + shuttleOperator +
+                ", operator=" + (shuttleOperator != null ? shuttleOperator.getFirstName() + " " + shuttleOperator.getLastName() : "null") +
                 ", licensePlate='" + licensePlate + '\'' +
                 ", shuttleStatus=" + shuttleStatus +
                 '}';
