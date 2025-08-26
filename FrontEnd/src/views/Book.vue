@@ -11,19 +11,19 @@
 
             <div class="nav-icons">
                 <div class="nav">
-                    <img src="/home.png" alt="" class="icon">
+                    <router-link to="/" class="icon"><img src="/home.png" alt=""></router-link>
                 </div>
                 <div class="nav">
-                    <img src="/dashboard.png" alt="" class="icon">
+                    <router-link to="/dashboard" class="icon"><img src="/dashboard.png" alt=""></router-link>
                 </div>
                 <div class="nav">
-                    <img src="/schedule.png" alt="" class="icon">
+                    <router-link to="/schedule" class="icon"><img src="/schedule.png" alt=""></img></router-link>
                 </div>
                 <div class="nav">
-                    <img src="/info.png" alt="" class="icon">
+                    <router-link to="/info" class="icon"><img src="/info.png" alt=""></router-link>
                 </div>
                 <div class="nav">
-                    <img src="/help.png" alt="" class="icon">
+                    <router-link to="/help" class="icon"><img src="/help.png" alt=""></router-link>
                 </div>
                 .
             </div>
@@ -71,18 +71,24 @@
 
             <div class="right-container">
                 <h2 class="booking-form">Booking form</h2>
-                <label for="name">Name</label>
-                <input type="text" id="name" class="inputs"></input>
-                <label for="surname" class="labels">Surname</label>
-                <input type="text" id="surname" class="inputs"></input>
-                <label for="student-number" class="labels">Student number</label>
-                <input type="text" id="student-number" class="inputs"></input>
-                <label for="departure" class="labels">Departure</label>
-                <input type="text" id="departure" class="inputs"></input>
-                <label for="destination" class="labels">Destination</label>
-                <input type="text" id="destination" class="inputs">
-                <label for="time" class="labels">Time</label>
-                <input type="time" id="time" class="time-input">
+                <div class="labels">
+                    <h2>Name</h2>
+                    <h2>Surname</h2>
+                    <h2>Student Number</h2>
+                    <h2>Departure</h2>
+                    <h2>Destination</h2>
+                    <h2>Time</h2>
+                </div>
+
+                <div class="text-inputs">
+                    <input type="text" class="input">
+                    <input type="text" class="input">
+                    <input type="text" class="input">
+                    <input type="text" class="input">
+                    <input type="text" class="input">
+                    <input type="time" class="time-input">
+
+                </div>
 
                 <button class="confirm-button">Confirm</button>
             </div>
@@ -175,6 +181,14 @@ body {
     width: 30px;
     height: 30px;
     z-index: 2;
+
+}
+
+.icon:hover {
+    background-color: transparent;
+    cursor: pointer;
+    transform: translateY(-5px);
+    transform-origin: center;
 }
 
 .covers {
@@ -218,7 +232,7 @@ body {
     top: 20%;
     left: 10%;
     width: 88%;
-    height: 70%;
+    height: 75%;
     border: solid white 1.5px;
     border-radius: 50px;
     background-color: #b0b0b089;
@@ -273,7 +287,8 @@ body {
     top: 6%;
     left: 32%;
     border-radius: 40px;
-    text-align: left;
+    text-align: center;
+    font-size: 15px;
     color: rgba(184, 184, 184, 0.836);
     border: none;
 }
@@ -309,32 +324,37 @@ body {
 }
 
 .right-container {
-    display: inline-flex;
+    display: flex;
     flex-direction: column;
     position: absolute;
     width: 65%;
-    height: 75%;
+    height: 78%;
     border: 1.55px solid white;
     border-radius: 20px;
     top: 20%;
     left: 30%;
-
     color: white;
 
 }
 
-.inputs {
+.input {
     display: flex;
-    position: static;
-    justify-content: center;
     flex-direction: column;
-    width: 300px;
-    height: 30px;
-    left: 30%;
-    gap: 50px;
     border-radius: 40px;
     border: none;
+    width: 300px;
+    height: 30px;
 
+
+}
+
+.text-inputs {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    gap: 15px;
+    top: 18%;
+    left: 45%;
 }
 
 .time-input {
@@ -369,5 +389,16 @@ body {
     height: 40px;
     text-align: center;
     color: white;
+}
+
+.labels {
+    display: flex;
+    flex-direction: column;
+    margin-left: 80px;
+    margin-top: 20px;
+    gap: 10px;
+    font-size: 16px;
+
+
 }
 </style>

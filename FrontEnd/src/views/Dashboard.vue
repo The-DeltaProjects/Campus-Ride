@@ -1,234 +1,371 @@
 <template>
 
+    <link href="https://fonts.googleapis.com/css2?family=Kavoon&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Katibeh&display=swap" rel="stylesheet">
+
     <div class="dashboard-page">
 
-        <link href="https://fonts.googleapis.com/css2?family=Kavoon&display=swap" rel="stylesheet">
+        <div class="navigation-pane">
 
-        <img src="/campus-logo.png" alt="" class="logo">
-
-        <div class="leftPanel">
-            <h2 class="dash">Dashboard</h2>
-
-            <div class="navigation">
-                <div class="icon-elements">
-                    <img src="/new-moon.png" alt="" class="cover">
-                    <img src="/home.png" alt="" class="icon">
-                    <router-link to="/" class="label">Home</router-link>
+            <div class="nav-icons">
+                <div class="nav">
+                    <router-link to="/" class="icon"><img src="/home.png" alt=""></router-link>
                 </div>
-
-                <div class="icon-elements">
-                    <img src="/new-moon.png" alt="" class="cover">
-                    <img src="/profile-logo.png" alt="" class="icon">
-                    <router-link to="/profile" class="label">Profile</router-link>
+                <div class="nav">
+                    <router-link to="/dashboard" class="icon"><img src="/dashboard.png" alt=""></router-link>
                 </div>
-
-                <div class="icon-elements">
-                    <img src="/new-moon.png" alt="" class="cover">
-                    <img src="/schedule.png" alt="" class="icon">
-                    <router-link to="/schedule" class="label">Schedule</router-link>
+                <div class="nav">
+                    <router-link to="/schedule" class="icon"><img src="/schedule.png" alt=""></img></router-link>
                 </div>
-
-                <div class="icon-elements">
-                    <img src="/new-moon.png" alt="" class="cover">
-                    <img src="/info.png" alt="" class="icon">
-                    <router-link to="/info" class="label">Info</router-link>
+                <div class="nav">
+                    <router-link to="/info" class="icon"><img src="/info.png" alt=""></router-link>
                 </div>
-
-                <div class="icon-elements">
-                    <img src="/new-moon.png" alt="" class="cover">
-                    <img src="/help.png" alt="" class="icon">
-                    <router-link to="/help" class="label">Help</router-link>
+                <div class="nav">
+                    <router-link to="/help" class="icon"><img src="/help.png" alt=""></router-link>
                 </div>
-
-                <div class="icon-elements">
-                    <img src="/line.png" alt="" class="line">
-                </div>
-
-                <div class="icon-elements">
-                    <img src="/exit.png" alt="" class="exit-icon">
-                    <h1 class="exit-label">Log Out</h1>
-                </div>
+                .
             </div>
+
+
+
         </div>
-    </div>
 
-    <div class="left-elements">
-        <img src="/filter.png" alt="" class="filter"></img>
-        <h2 class="sort-by">Sort-by</h2>
-    </div>
+        <img src="/campus-logo.png" alt="" class="main-logo">
 
-    <div class="search-elements">
-        <h2 class="search">Search </h2>
-        <input type="text" value="" class="search-bar">
+
+
+        <h2 class="dashboard-label"> Dashboard </h2>
+
+        <div class="log-out">
+            <img src="/exit.png" alt="" class="logout">
+        </div>
+
+        <div class="covers">
+            <img src="/new-moon.png" alt="" class="cover">
+            <img src="/new-moon.png" alt="" class="cover">
+            <img src="/new-moon.png" alt="" class="cover">
+            <img src="/new-moon.png" alt="" class="cover">
+            <img src="/new-moon.png" alt="" class="cover">
+        </div>
+
+        <div class="main-container">
+
+            <img src="/filter(2).png" alt="" class="filter-white">
+            <h2 class="sort-by">sort-by</h2>
+
+            <input type="text" placeholder="Search" id="" class="search">
+
+            <img src="/profile-logo.png" alt="" class="profile-logo"></img>
+            <img src="/new-moon.png" alt="" class="profile-cover"></img>
+
+
+        </div>
+
     </div>
 
 
 </template>
 
 <script>
+
 export default {
-    name: 'Dashboard'
+    name: 'book'
 }
 </script>
 
 <style scoped>
+template,
+body {
+    margin: 0;
+    height: 100vh;
+    width: 100%;
+}
+
+.main-logo {
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    width: 300px;
+    height: 60px;
+    left: 40%;
+    top: 5%;
+}
+
+.dashboard-label {
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    top: 5%;
+    left: 2%;
+    font-size: 35px;
+    font-family: "Kavoon", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+    color: white;
+}
+
 .dashboard-page {
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0;
     width: 100vw;
     height: 100vh;
-    background-color: #BABABA;
+    background: linear-gradient(to top, #626262, #319AC4);
     z-index: 0;
 }
 
-
-.logo {
-    display: flex;
-    top: 10%;
-    text-align: center;
-    justify-content: center;
-    width: 270px;
-    height: 80px;
-    margin-left: 50%;
-    z-index: 999;
-}
-
-.search-elements {
-    display: inline-flex;
-    position: absolute;
-    left: 80%;
-    top: 10%;
-    z-index: 2;
-    gap: 20px;
-    justify-content: center;
-    align-items: center;
-}
-
-.search {
-    font-family: "Katibeh", serif;
-    font-size: 25px;
-    z-index: 2;
-    color: rgb(255, 255, 255);
-    align-items: normal;
-}
-
-.search-bar {
-    height: 30px;
-    border-radius: 50px;
-    width: 200px;
-}
-
-.left-elements {
-    display: inline-flex;
-    position: absolute;
-    top: 13%;
-    left: 23%;
-    gap: 10%;
-    width: 150px;
-    justify-content: center;
-    align-items: center;
-    color: white;
-}
-
-.filter {
-    display: flex;
-    width: 30px;
-    height: 30px;
-}
-
-.sort-by {
-    font-family: serif;
-    display: flex;
-    font-size: 20px;
-
-}
-
-.leftPanel {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 350px;
-    height: 100vh;
-    background: linear-gradient(to right, black, #319AC4);
-    padding-top: 80px;
-    text-align: center;
-}
-
-.dash {
-    font-family: "Kavoon", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
-    font-size: 40px;
-    color: white;
-    margin-bottom: 40px;
-
-}
-
-.navigation {
+.nav-icons {
     display: flex;
     flex-direction: column;
-    gap: 50px;
-    align-items: flex-start;
-    padding-left: 40px;
-}
-
-.icon-elements {
-    display: flex;
-    align-items: center;
+    justify-content: center;
     gap: 30px;
-    position: relative;
+
 }
 
-.cover {
-    width: 70px;
-    height: 70px;
+.navigation-pane {
+    display: block;
+    align-content: center;
+    left: 2%;
+    top: 20%;
+    background-color: #b0b0b089;
     position: absolute;
-    left: -10px;
-    z-index: 0;
+    width: 70px;
+    height: 60%;
+    align-items: center;
+    border-radius: 50px;
+}
+
+.nav {
+    display: flex;
+    margin-top: 25px;
+    align-items: center;
+    justify-content: center;
+    align-items: center;
 }
 
 .icon {
+    display: flex;
     width: 30px;
     height: 30px;
-    z-index: 1;
-    margin-left: 10px;
-}
-
-.line {
-    z-index: 1;
-    width: 250px;
-    height: 8px;
-    margin-top: 20px;
-}
-
-.exit-icon {
-    width: 30px;
-    height: 30px;
-    z-index: 1;
-    margin-top: -20px;
-}
-
-.label {
-    color: white;
-    font-size: 20px;
-    margin-left: 15px;
-    z-index: 999;
-    display: inline-block;
-    transition: transform .2s ease, color .2s ease;
-}
-
-.exit-label {
-    color: white;
-    font-size: 20px;
-    margin-left: 15px;
     z-index: 2;
-    margin-top: -20px;
+
 }
 
-.label:hover {
-    cursor: pointer;
-    transform: scale(1.26);
-    transform-origin: left center;
-    text-decoration: none;
+.icon:hover {
     background-color: transparent;
+    cursor: pointer;
+    transform: translateY(-5px);
+    transform-origin: center;
+}
+
+.covers {
+    position: absolute;
+    display: flex;
+    top: 21.4%;
+    left: 2.3%;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.cover {
+    top: 15%;
+    width: 60px;
+    height: 60px;
+}
+
+.log-out {
+    display: flex;
+    position: absolute;
+    align-items: center;
+    top: 85%;
+    left: 2%;
+    justify-content: center;
+    background-color: #b0b0b089;
+    width: 70px;
+    height: 70px;
+    border-radius: 50px;
+}
+
+.logout {
+    width: 30px;
+    height: 30px;
+}
+
+/*----main container elements----*/
+
+.main-container {
+    display: flex;
+    position: absolute;
+    top: 20%;
+    left: 10%;
+    width: 88%;
+    height: 75%;
+    border: solid white 1.5px;
+    border-radius: 50px;
+    background-color: #b0b0b089;
+    z-index: 3;
+}
+
+.profile-logo {
+    display: flex;
+    position: absolute;
+    width: 35px;
+    height: 35px;
+    top: 5%;
+    left: 94.3%;
+    z-index: 5;
+
+}
+
+.profile-cover {
+    display: flex;
+    position: absolute;
+    top: 2%;
+    left: 93%;
+    width: 70px;
+    height: 70px;
+}
+
+.filter-white {
+    display: flex;
+    position: absolute;
+    width: 35px;
+    height: 35px;
+    top: 5%;
+    left: 2%;
+}
+
+.sort-by {
+    display: flex;
+    position: absolute;
+    font-size: 20px bold;
+    font-family: sans-serif;
+    color: white;
+    top: 5%;
+    left: 5%;
+}
+
+.search {
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    width: 30%;
+    height: 35px;
+    top: 6%;
+    left: 32%;
+    border-radius: 40px;
+    text-align: center;
+    font-size: 15px;
+    color: rgba(184, 184, 184, 0.836);
+    border: none;
+}
+
+.search ::placeholder {
+    color: black;
+}
+
+.top-container {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    width: 25%;
+    height: 30%;
+    border: 1.55px solid white;
+    border-radius: 20px;
+    top: 20%;
+    left: 2%;
+
+}
+
+.bottom-container {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    width: 25%;
+    height: 40%;
+    border: 1.55px solid white;
+    border-radius: 20px;
+    top: 55%;
+    left: 2%;
+
+}
+
+.right-container {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    width: 65%;
+    height: 78%;
+    border: 1.55px solid white;
+    border-radius: 20px;
+    top: 20%;
+    left: 30%;
+    color: white;
+
+}
+
+.input {
+    display: flex;
+    flex-direction: column;
+    border-radius: 40px;
+    border: none;
+    width: 300px;
+    height: 30px;
+
+
+}
+
+.text-inputs {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    gap: 15px;
+    top: 18%;
+    left: 45%;
+}
+
+.time-input {
+    display: inline;
+    flex-direction: row;
+    width: 80px;
+    height: 30px;
+    border-radius: 20px;
+    border: none;
+}
+
+.booking-form {
+    font-family: sans-serif;
+    font-size: 30px;
+    text-align: center;
+    color: white;
+    text-decoration: underline solid 2.5px rgb(255, 255, 255);
+
+
+}
+
+.confirm-button {
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50px;
+    background-color: #319AC4;
+    border: none;
+    top: 85%;
+    left: 45%;
+    width: 110px;
+    height: 40px;
+    text-align: center;
+    color: white;
+}
+
+.labels {
+    display: flex;
+    flex-direction: column;
+    margin-left: 80px;
+    margin-top: 20px;
+    gap: 10px;
+    font-size: 16px;
+
+
 }
 </style>
