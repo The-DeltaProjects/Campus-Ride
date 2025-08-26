@@ -1,17 +1,23 @@
 package za.ca.cput.domain;
 
-public class Student extends User{
+import java.util.ArrayList;
+import java.util.List;
+
+public class Student extends User {
     private String studentNumber;
-    private Booking bookings;
-    private Feedback feedback;
+    private List<Booking> bookings;
+    private List<Feedback> feedbackList;
+
 
     protected Student() {
+        this.bookings = new ArrayList<>();
+        this.feedbackList = new ArrayList<>();
     }
 
     private Student(Builder builder) {
         this.studentNumber = builder.studentNumber;
-        this.bookings = builder.bookings;
-        this.feedback = builder.feedback;
+        this.bookings = builder.bookings != null ? builder.bookings : new ArrayList<>();
+        this.feedbackList = builder.feedbackList != null ? builder.feedbackList : new ArrayList<>();
         this.userId = builder.userId;
         this.firstName = builder.firstName;
         this.lastName = builder.lastName;
@@ -24,19 +30,21 @@ public class Student extends User{
         return studentNumber;
     }
 
-    public Booking getBookings() {
+    public List<Booking> getBookings() {
         return bookings;
     }
-    public Feedback getFeedback() {
-        return feedback;
+
+    public List<Feedback> getFeedbackList() {
+        return feedbackList;
     }
+
 
     @Override
     public String toString() {
         return "Student{" +
                 "studentNumber='" + studentNumber + '\'' +
-                ", bookings=" + bookings +
-                ", feedback=" + feedback +
+                ", numberOfBookings=" + (bookings != null ? bookings.size() : 0) +
+                ", feedbackList=" + (feedbackList != null ? feedbackList.size() : 0) +
                 ", userId=" + userId +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
@@ -48,8 +56,8 @@ public class Student extends User{
 
     public static class Builder {
         private String studentNumber;
-        private Booking bookings;
-        private Feedback feedback;
+        private List<Booking> bookings;
+        private List<Feedback> feedbackList;
         private Long userId;
         private String firstName;
         private String lastName;
@@ -57,55 +65,55 @@ public class Student extends User{
         private String password;
         private Notifications notifications;
 
-        public Builder studentNumber(String studentNumber) {
+        public Builder setStudentNumber(String studentNumber) {
             this.studentNumber = studentNumber;
             return this;
         }
 
-        public Builder bookings(Booking bookings) {
+        public Builder setBookings(List<Booking> bookings) {
             this.bookings = bookings;
             return this;
         }
 
-        public Builder feedback(Feedback feedback) {
-            this.feedback = feedback;
+        public Builder setFeedbackList(List<Feedback> feedbackList) {
+            this.feedbackList = feedbackList;
             return this;
         }
 
-        public Builder userId(Long userId) {
+        public Builder setUserId(Long userId) {
             this.userId = userId;
             return this;
         }
 
-        public Builder firstName(String firstName) {
+        public Builder setFirstName(String firstName) {
             this.firstName = firstName;
             return this;
         }
 
-        public Builder lastName(String lastName) {
+        public Builder setLastName(String lastName) {
             this.lastName = lastName;
             return this;
         }
 
-        public Builder email(String email) {
+        public Builder setEmail(String email) {
             this.email = email;
             return this;
         }
 
-        public Builder password(String password) {
+        public Builder setPassword(String password) {
             this.password = password;
             return this;
         }
 
-        public Builder notifications(Notifications notifications) {
+        public Builder setNotifications(Notifications notifications) {
             this.notifications = notifications;
             return this;
         }
 
-        public Builder copy(Builder builder){
+        public Builder copy(Builder builder) {
             this.studentNumber = builder.studentNumber;
             this.bookings = builder.bookings;
-            this.feedback = builder.feedback;
+            this.feedbackList = builder.feedbackList;
             this.userId = builder.userId;
             this.firstName = builder.firstName;
             this.lastName = builder.lastName;

@@ -66,12 +66,13 @@ public class Booking {
                 ", bookingTime=" + bookingTime +
                 ", pickupLocation='" + pickupLocation + '\'' +
                 ", dropoffLocation='" + dropoffLocation + '\'' +
-                ", shuttle=" + shuttle +
-                ", bookedStudent=" + bookedStudent +
-                ", ticket=" + ticket +
+                ", shuttle=" + (shuttle != null ? shuttle.getLicensePlate() : "None") +
+                ", bookedStudent=" + (bookedStudent != null ? bookedStudent.getFirstName() + " " + bookedStudent.getLastName() : "None") +
+                ", ticket=" + (ticket != null ? ticket.getTicketId() : "None") +
                 ", bookingStatus='" + bookingStatus + '\'' +
                 '}';
     }
+
 
     public static class Builder {
         private Long bookingId;

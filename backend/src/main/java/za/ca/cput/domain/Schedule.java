@@ -58,6 +58,20 @@ public class Schedule {
         return availableSeats;
     }
 
+    @Override
+    public String toString() {
+        return "Schedule{" +
+                "scheduleId=" + shechduleId +
+                ", shuttle=" + (shuttle != null ? "Shuttle ID:" + shuttle.getShuttleId() : "null") +
+                ", operator=" + (operator != null ? operator.getFirstName() + " " + operator.getLastName() + " (ID:" + operator.getOperatorId() + ")" : "null") +
+                ", origin='" + origin + '\'' +
+                ", destination='" + destination + '\'' +
+                ", departureTime=" + departureTime +
+                ", arrivalTime=" + arrivalTime +
+                ", availableSeats=" + availableSeats +
+                '}';
+    }
+
     public static class Builder {
         private Long shechduleId;
         private Shuttle shuttle;

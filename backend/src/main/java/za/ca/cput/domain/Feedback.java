@@ -52,9 +52,9 @@ public class Feedback {
                 "feedbackId=" + feedbackId +
                 ", comment='" + comment + '\'' +
                 ", feedbackTime=" + feedbackTime +
-                ", student=" + student +
-                ", shuttle=" + shuttle +
-                ", booking=" + booking +
+                ", student=" + (student != null ? student.getFirstName() + " " + student.getLastName() : "None") +
+                ", shuttle=" + (shuttle != null ? shuttle.getLicensePlate() : "None") +
+                ", booking=" + (booking != null ? booking.getBookingId() : "None") +
                 '}';
     }
 

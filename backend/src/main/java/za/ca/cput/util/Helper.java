@@ -33,7 +33,7 @@ public class Helper {
 
     // Student number validation (CPUT format)
     public static boolean isValidStudentNumber(String studentNumber) {
-        return studentNumber != null && studentNumber.matches("^CPUT-\\d{4}-\\d{5}$");
+        return studentNumber != null && studentNumber.matches("^\\d{9}$");
     }
     // License number validation
     public static boolean isValidLicenseNumber(String licenseNumber) {

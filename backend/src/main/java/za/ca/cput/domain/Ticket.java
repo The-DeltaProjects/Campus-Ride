@@ -41,7 +41,7 @@ public class Ticket {
                 "ticketId=" + ticketId +
                 ", issuedDate=" + issuedDate +
                 ", isVerified=" + isVerified +
-                ", booking=" + booking +
+                ", bookingId=" + (booking != null ? booking.getBookingId() : "None") +
                 '}';
     }
 
