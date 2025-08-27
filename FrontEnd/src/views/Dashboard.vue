@@ -50,6 +50,9 @@
             <img src="/new-moon.png" alt="" class="cover">
         </div>
 
+        <router-link to="/profile"><img src="/profile-logo.png" alt="" class="profile-logo"></img></router-link>
+        <img src="/new-moon.png" alt="" class="profile-cover"></img>
+
         <div class="main-container">
 
             <img src="/filter(2).png" alt="" class="filter-white">
@@ -57,8 +60,7 @@
 
             <input type="text" placeholder="Search" id="" class="search">
 
-            <img src="/profile-logo.png" alt="" class="profile-logo"></img>
-            <img src="/new-moon.png" alt="" class="profile-cover"></img>
+
 
 
         </div>
@@ -211,8 +213,8 @@ body {
     position: absolute;
     width: 35px;
     height: 35px;
-    top: 5%;
-    left: 94.3%;
+    top: 4%;
+    left: 94.1%;
     z-index: 5;
 
 }
