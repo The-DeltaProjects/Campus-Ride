@@ -5,18 +5,11 @@
 
         </div>
 
-        <h2 class="login-heading">Log In</h2>
-
         <div class="login-form">
 
             <div class="content">
 
                 <img src="/login-display.png" alt="" class="form-image">
-
-                <div class="text-inputs">
-                    <input type="text" placeholder="Username" class="inputs">
-                    <input type="password" placeholder="Password" class="inputs">
-                </div>
 
                 <div class="icons">
                     <img src="/user-white.png" alt="" class="user-icon">
@@ -24,14 +17,15 @@
                 </div>
 
                 <button class="Log-in">Log In</button>
-
-                <h3 class="forgot-password">Forgot your password ? <p>reset</p>
-                </h3>
             </div>
 
 
         </div>
 
+        <div class="display-images">
+            <img src="/display-image.jpg" alt="" class="display-image">
+            <img src="/display-image2.jpg" alt="" class="display-image2">
+        </div>
 
     </div>
 
@@ -62,6 +56,38 @@ body {
 
 }
 
+.display-images {
+    display: flex;
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.393);
+    top: 0%;
+    left: 55%;
+    border-radius: 40px;
+    width: 45%;
+    height: 99%;
+}
+
+.display-image {
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    width: 57%;
+    height: 30.4vw;
+    top: 5%;
+    left: 38%;
+    border-radius: 40px;
+}
+
+.display-image2 {
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    width: 40%;
+    height: 26.4vw;
+    top: 35%;
+    left: 10%;
+    border-radius: 40px;
+}
 
 .login-form {
     display: flex;
@@ -78,25 +104,23 @@ body {
     display: flex;
     flex-direction: column;
     position: absolute;
-    background-color: #a3c7c783;
     border: solid white 1.7px;
     border-radius: 40px;
     justify-content: center;
     width: 70%;
     height: 70%;
-    left: 45%;
-    top: 20%;
-    box-shadow: -6px 7px rgba(47, 47, 47, 0.392);
+    left: 10%;
+    top: 20%
 }
 
 .form-image {
     display: flex;
     flex-direction: column;
     position: absolute;
-    top: 3%;
-    left: 38%;
-    width: 190px;
-    height: 170px;
+    top: 10%;
+    left: 45%;
+    width: 100px;
+    height: 100px;
 }
 
 .user-icon {
@@ -122,7 +146,7 @@ body {
 .Log-in {
     font-family: sans-serif;
     position: absolute;
-    top: 75%;
+    top: 80%;
     left: 40%;
     width: 150px;
     height: 50px;
@@ -131,70 +155,5 @@ body {
     text-align: center;
     background-color: #3398C0;
     color: white;
-    box-shadow: rgba(47, 47, 47, 0.392) -2px 4px;
-}
-
-.Log-in:hover {
-    cursor: pointer;
-    transition: ease .3s;
-    transform: translateY(-5px);
-}
-
-.login-heading {
-    display: flex;
-    flex-direction: row;
-    position: absolute;
-    top: 5%;
-    left: 45%;
-    color: white;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-size: 40px;
-}
-
-
-.text-inputs {
-    display: flex;
-    flex-direction: column;
-    position: absolute;
-    gap: 65px;
-    left: 25%;
-    top: 40%;
-}
-
-.inputs {
-    width: 400px;
-    height: 40px;
-    border: none;
-    border-radius: 30px;
-    box-shadow: rgba(47, 47, 47, 0.392) -2px 4px;
-}
-
-::placeholder {
-    color: rgb(196, 195, 195);
-    position: absolute;
-    align-items: center;
-    left: 5%;
-    font-size: 15px;
-
-}
-
-.forgot-password {
-    display: flex;
-    flex-direction: row;
-    position: absolute;
-    font-family: sans-serif;
-    font-size: 17px;
-    top: 90%;
-    left: 35%;
-    color: white;
-
-}
-
-.forgot-password p {
-    display: flex;
-    position: absolute;
-    color: rgb(127, 54, 195);
-    left: 105%;
-
 }
 </style>
