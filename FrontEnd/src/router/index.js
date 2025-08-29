@@ -4,6 +4,7 @@ import Dashboard from '../views/Dashboard.vue'
 import Profile from '../views/Profile.vue'
 import Book from '../views/Book.vue'
 import Login from '../views/Login.vue'
+import signUp from '../views/signUp.vue'
 
 const routes = [
   { 
@@ -30,6 +31,12 @@ const routes = [
   { path: '/login',
     name: 'login',
     component: Login
+  },
+
+  {
+    path: '/signup',
+    name: 'signup',
+    component: signUp
   }
 ]
 

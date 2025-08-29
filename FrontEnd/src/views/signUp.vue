@@ -1,34 +1,49 @@
 <template>
     <div class="main-frame">
 
-        <router-link to="/signup"><button class="sign-up">Sign Up</button></router-link>
+
+        <h2 class="signup-heading">Sign Up</h2>
 
         <div class="signup-form">
 
-        </div>
-
-        <h2 class="login-heading">Log In</h2>
-
-        <div class="login-form">
-
             <div class="content">
 
-                <img src="/login-display.png" alt="" class="form-image">
+                <img src="/signup-display2.png" alt="" class="signup-display">
 
                 <div class="text-inputs">
-                    <input type="text" placeholder="Username" class="inputs">
-                    <input type="password" placeholder="Password" class="inputs">
+                    <input type="text" placeholder="First name" class="inputs">
+                    <input type="password" placeholder="Second name" class="inputs">
+                    <input type="email" placeholder="Enter Email" class="inputs">
+                    <input type="password" placeholder="Enter Password" class="inputs">
                 </div>
 
                 <div class="icons">
                     <img src="/user-white.png" alt="" class="user-icon">
                     <img src="/lock-white.png" alt="" class="lock-icon">
+                    <img src="/email-white.png" alt="" class="email-icon">
+                    <img src="/key-white.png" alt="" class="key-icon">
                 </div>
 
-                <button class="Log-in">Log In</button>
+                <button class="sign-in">Sign Up</button>
 
-                <h3 class="forgot-password">Forgot your password ? <p>reset</p>
-                </h3>
+
+            </div>
+
+            <div class="right-info">
+
+
+
+                <div class="text">
+                    <h3 class="first-text">Already have an account ? <router-link to='/login' class="signin-link">
+                            <p> Sign in</p>
+                        </router-link>
+                    </h3>
+                    <h3 class="second-text">Welcome to Campus Ride,</h3>
+                    <h3 class="third-text">Create an account today and enjoy the ride.</h3>
+                </div>
+
+                <img src="/signup-image.png" alt="" class="signup-image">
+
             </div>
 
 
@@ -65,7 +80,7 @@ body {
 }
 
 
-.login-form {
+.signup-form {
     display: flex;
     flex-direction: column;
     position: absolute;
@@ -95,7 +110,17 @@ body {
     box-shadow: rgba(47, 47, 47, 0.392) -2px 3px;
 }
 
-.sign-up:hover {
+.signup-display {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 7%;
+    left: 33%;
+    width: 260px;
+    height: 100px;
+}
+
+.sign-ip:hover {
     cursor: pointer;
     transform: translateY(-5px);
     transition: ease .3s;
@@ -110,9 +135,9 @@ body {
     border-radius: 40px;
     justify-content: center;
     width: 70%;
-    height: 70%;
-    left: 45%;
-    top: 20%;
+    height: 80%;
+    left: 12%;
+    top: 18%;
     box-shadow: -6px 7px rgba(47, 47, 47, 0.392);
 }
 
@@ -129,7 +154,7 @@ body {
 .user-icon {
     display: flex;
     position: absolute;
-    top: 40%;
+    top: 35%;
     left: 10%;
     gap: 20px;
     width: 40px;
@@ -139,17 +164,38 @@ body {
 .lock-icon {
     display: flex;
     position: absolute;
-    top: 60%;
+    top: 47%;
     left: 10%;
     gap: 20px;
     width: 40px;
     height: 40px;
 }
 
-.Log-in {
+.email-icon {
+    display: flex;
+    position: absolute;
+    top: 61%;
+    left: 10%;
+    gap: 20px;
+    width: 40px;
+    height: 40px;
+}
+
+
+.key-icon {
+    display: flex;
+    position: absolute;
+    top: 74%;
+    left: 10%;
+    gap: 20px;
+    width: 40px;
+    height: 40px;
+}
+
+.sign-in {
     font-family: sans-serif;
     position: absolute;
-    top: 75%;
+    top: 88%;
     left: 40%;
     width: 150px;
     height: 50px;
@@ -161,21 +207,22 @@ body {
     box-shadow: rgba(47, 47, 47, 0.392) -2px 4px;
 }
 
-.Log-in:hover {
+.sign-in:hover {
     cursor: pointer;
     transition: ease .3s;
     transform: translateY(-5px);
 }
 
-.login-heading {
+.signup-heading {
     display: flex;
     flex-direction: row;
     position: absolute;
-    top: 5%;
+    top: 2%;
     left: 45%;
     color: white;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-size: 40px;
+    font-size: 50px;
+    font-weight: bold;
 }
 
 
@@ -183,9 +230,9 @@ body {
     display: flex;
     flex-direction: column;
     position: absolute;
-    gap: 65px;
+    gap: 35px;
     left: 25%;
-    top: 40%;
+    top: 35%;
 }
 
 .inputs {
@@ -223,5 +270,79 @@ body {
     color: rgb(127, 54, 195);
     left: 105%;
 
+}
+
+.right-info {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    width: 75%;
+    height: 90%;
+    border-radius: 30px;
+    top: 4%;
+    right: -55%;
+}
+
+.signup-image {
+    display: flex;
+    position: absolute;
+    top: 50%;
+    left: 27%;
+    justify-content: center;
+    align-items: center;
+    width: 350px;
+    height: 360px;
+    border-radius: 20px;
+}
+
+.text {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 14%;
+    left: 20%;
+    color: white;
+    gap: 10px;
+}
+
+.first-text {
+    display: flex;
+    flex-direction: row;
+    font-family: sans-serif;
+    font-size: 23px;
+    margin-left: 13%;
+
+}
+
+.signin-link {
+    margin-left: 10px;
+    color: #000000;
+
+}
+
+.signin-link:hover {
+    cursor: pointer;
+    transform: translateY(-2px);
+    transition: ease .3s;
+    color: #03476b;
+    background-color: transparent;
+}
+
+
+
+.second-text {
+    display: flex;
+    flex-direction: row;
+    font-family: sans-serif;
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.third-text {
+    display: flex;
+    flex-direction: row;
+    font-family: sans-serif;
+    font-size: 27px;
+    margin-left: -1%;
 }
 </style>
