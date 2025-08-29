@@ -1,12 +1,23 @@
 package za.ca.cput.domain;
 
+import jakarta.persistence.*;
+
 import java.time.LocalDateTime;
 
+@Entity
 public class Ticket {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long ticketId;
     private LocalDateTime issuedDate;
     private boolean isVerified;
+
+    @OneToOne
+    @JoinColumn(name = "booking_id")
     private Booking booking;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "qr_code_id")
     private QRCode qrCode;
 
     protected Ticket() {

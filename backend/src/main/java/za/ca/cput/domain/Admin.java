@@ -1,115 +1,158 @@
 package za.ca.cput.domain;
 
-public class Admin extends User{
+import jakarta.persistence.*;
+
+@Entity
+@Table(name = "admin")
+public class Admin {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long adminId;
+
+    private String firstName;
+    private String lastName;
+
+    @Column(unique = true, nullable = false)
+    private String email;
+
+    private String password;
+
+    @ManyToOne
+    @JoinColumn(name = "schedule_id")
     private Schedule managedSchedule;
 
-    protected Admin() {
+    public String getRole() {
+        return "ADMIN";
+    }
 
+    protected Admin() {
     }
 
     private Admin(Builder builder) {
         this.adminId = builder.adminId;
-        this.managedSchedule = builder.managedSchedule;
-        this.userId = builder.userId;
         this.firstName = builder.firstName;
         this.lastName = builder.lastName;
         this.email = builder.email;
         this.password = builder.password;
-        this.notifications = builder.notifications;
+        this.managedSchedule = builder.managedSchedule;
     }
 
+    // Getters
     public Long getAdminId() {
         return adminId;
     }
 
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+
     public Schedule getManagedSchedule() {
         return managedSchedule;
+    }
+
+    // Setters
+    public void setAdminId(Long adminId) {
+        this.adminId = adminId;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+
+    public void setManagedSchedule(Schedule managedSchedule) {
+        this.managedSchedule = managedSchedule;
     }
 
     @Override
     public String toString() {
         return "Admin{" +
                 "adminId=" + adminId +
-                ", managedSchedule=" + managedSchedule +
-                ", userId=" + userId +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", email='" + email + '\'' +
                 ", password='" + password + '\'' +
-                ", notifications=" + notifications +
+                ", managedSchedule=" + (managedSchedule != null ? managedSchedule.getScheduleId() : "null") +
                 '}';
     }
 
     public static class Builder {
         private Long adminId;
-        private Schedule managedSchedule;
-        private Long userId;
         private String firstName;
         private String lastName;
         private String email;
         private String password;
-        private Notifications notifications;
+        private Schedule managedSchedule;
 
-        public Builder adminId(Long adminId) {
+        public Builder setAdminId(Long adminId) {
             this.adminId = adminId;
             return this;
         }
 
-        public Builder managedSchedule(Schedule managedSchedule) {
-            this.managedSchedule = managedSchedule;
-            return this;
-        }
-
-        public Builder userId(Long userId) {
-            this.userId = userId;
-            return this;
-        }
-
-        public Builder firstName(String firstName) {
+        public Builder setFirstName(String firstName) {
             this.firstName = firstName;
             return this;
         }
 
-        public Builder lastName(String lastName) {
+        public Builder setLastName(String lastName) {
             this.lastName = lastName;
             return this;
         }
 
-        public Builder email(String email) {
+        public Builder setEmail(String email) {
             this.email = email;
             return this;
         }
 
-        public Builder password(String password) {
+        public Builder setPassword(String password) {
             this.password = password;
             return this;
         }
 
-        public Builder notifications(Notifications notifications) {
-            this.notifications = notifications;
+
+        public Builder setManagedSchedule(Schedule managedSchedule) {
+            this.managedSchedule = managedSchedule;
             return this;
         }
 
-        public Builder copy(Builder builder){
-            this.adminId = builder.adminId;
-            this.managedSchedule = builder.managedSchedule;
-            this.userId = builder.userId;
-            this.firstName = builder.firstName;
-            this.lastName = builder.lastName;
-            this.email = builder.email;
-            this.password = builder.password;
-            this.notifications = builder.notifications;
+        public Builder copy(Admin admin) {
+            this.adminId = admin.adminId;
+            this.firstName = admin.firstName;
+            this.lastName = admin.lastName;
+            this.email = admin.email;
+            this.password = admin.password;
+            this.managedSchedule = admin.managedSchedule;
             return this;
         }
 
         public Admin build() {
             return new Admin(this);
         }
-
     }
 }
-
-
-
-
