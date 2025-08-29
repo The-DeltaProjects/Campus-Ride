@@ -1,17 +1,27 @@
 package za.ca.cput.domain;
 
+import jakarta.persistence.*;
 import za.ca.cput.domain.enums.ShuttleStatus;
 
+@Entity
+@Table(name = "shuttle")
 public class Shuttle {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long shuttleId;
     private int capacity;
+
+    @ManyToOne
+    @JoinColumn(name = "operator_id", nullable = false)
     private ShuttleOperator shuttleOperator;
+
+    @Column(unique = true, nullable = false)
     private String licensePlate;
+
+    @Enumerated(EnumType.STRING)
     private ShuttleStatus shuttleStatus;
 
-    protected Shuttle(){
-
-    }
+    protected Shuttle() {}
 
     private Shuttle(Builder builder) {
         this.shuttleId = builder.shuttleId;
@@ -21,32 +31,20 @@ public class Shuttle {
         this.shuttleStatus = builder.shuttleStatus;
     }
 
-    public Long getShuttleId() {
-        return shuttleId;
-    }
+    // Getters
+    public Long getShuttleId() { return shuttleId; }
+    public int getCapacity() { return capacity; }
+    public ShuttleOperator getShuttleOperator() { return shuttleOperator; }
+    public String getLicensePlate() { return licensePlate; }
+    public ShuttleStatus getShuttleStatus() { return shuttleStatus; }
 
-    public int getCapacity() {
-        return capacity;
-    }
-
-    public ShuttleOperator getShuttleOperator() {
-        return shuttleOperator;
-    }
-
-    public String getLicensePlate() {
-        return licensePlate;
-    }
-
-    public ShuttleStatus getShuttleStatus() {
-        return shuttleStatus;
-    }
 
     @Override
     public String toString() {
         return "Shuttle{" +
                 "shuttleId=" + shuttleId +
                 ", capacity=" + capacity +
-                ", operator=" + (shuttleOperator != null ? shuttleOperator.getFirstName() + " " + shuttleOperator.getLastName() : "null") +
+                ", operator=" + (shuttleOperator != null ? shuttleOperator.getFirstName() + " " + shuttleOperator.getLastName() : "null") + // FIXED: shuttleOperator.getFirstName() instead of shuttleOperator.getUser()
                 ", licensePlate='" + licensePlate + '\'' +
                 ", shuttleStatus=" + shuttleStatus +
                 '}';
@@ -84,13 +82,13 @@ public class Shuttle {
             return this;
         }
 
-        public Builder copy(Builder builder){
-            return new Builder()
-                    .setShuttleId(this.shuttleId)
-                    .setCapacity(this.capacity)
-                    .setShuttleOperator(this.shuttleOperator)
-                    .setLicensePlate(this.licensePlate)
-                    .setShuttleStatus(this.shuttleStatus);
+        public Builder copy(Shuttle shuttle) {  // Fixed the copy method
+            this.shuttleId = shuttle.shuttleId;
+            this.capacity = shuttle.capacity;
+            this.shuttleOperator = shuttle.shuttleOperator;
+            this.licensePlate = shuttle.licensePlate;
+            this.shuttleStatus = shuttle.shuttleStatus;
+            return this;
         }
 
         public Shuttle build() {

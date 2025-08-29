@@ -1,87 +1,67 @@
 package za.ca.cput.domain;
 
-import java.util.ArrayList;
-import java.util.List;
+import jakarta.persistence.*;
 
-public class Student extends User {
-    private String studentNumber;
-    private List<Booking> bookings;
-    private List<Feedback> feedbackList;
+@Entity
+@Table(name = "student")
+public class Student {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long studentNumber;
+
+    private String firstName;
+    private String lastName;
+    @Column(unique = true, nullable = false)
+    private String email;
+    private String password;
+
+    public String getRole() {
+        return "STUDENT";
+    }
 
     protected Student() {
-        this.bookings = new ArrayList<>();
-        this.feedbackList = new ArrayList<>();
     }
 
     private Student(Builder builder) {
         this.studentNumber = builder.studentNumber;
-        this.bookings = builder.bookings != null ? builder.bookings : new ArrayList<>();
-        this.feedbackList = builder.feedbackList != null ? builder.feedbackList : new ArrayList<>();
-        this.userId = builder.userId;
         this.firstName = builder.firstName;
         this.lastName = builder.lastName;
         this.email = builder.email;
         this.password = builder.password;
-        this.notifications = builder.notifications;
     }
 
-    public String getStudentNumber() {
+    public Long getStudentId() {
         return studentNumber;
     }
-
-    public List<Booking> getBookings() {
-        return bookings;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public List<Feedback> getFeedbackList() {
-        return feedbackList;
+    public String getLastName() {
+        return lastName;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getPassword() {
+        return password;
     }
 
 
-    @Override
-    public String toString() {
-        return "Student{" +
-                "studentNumber='" + studentNumber + '\'' +
-                ", numberOfBookings=" + (bookings != null ? bookings.size() : 0) +
-                ", feedbackList=" + (feedbackList != null ? feedbackList.size() : 0) +
-                ", userId=" + userId +
-                ", firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", email='" + email + '\'' +
-                ", password='" + password + '\'' +
-                ", notifications=" + notifications +
-                '}';
-    }
 
     public static class Builder {
-        private String studentNumber;
-        private List<Booking> bookings;
-        private List<Feedback> feedbackList;
-        private Long userId;
+        private Long studentNumber;
         private String firstName;
         private String lastName;
         private String email;
         private String password;
         private Notifications notifications;
 
-        public Builder setStudentNumber(String studentNumber) {
+        public Builder setStudentId(Long studentNumber) {
             this.studentNumber = studentNumber;
-            return this;
-        }
-
-        public Builder setBookings(List<Booking> bookings) {
-            this.bookings = bookings;
-            return this;
-        }
-
-        public Builder setFeedbackList(List<Feedback> feedbackList) {
-            this.feedbackList = feedbackList;
-            return this;
-        }
-
-        public Builder setUserId(Long userId) {
-            this.userId = userId;
             return this;
         }
 
@@ -110,16 +90,12 @@ public class Student extends User {
             return this;
         }
 
-        public Builder copy(Builder builder) {
-            this.studentNumber = builder.studentNumber;
-            this.bookings = builder.bookings;
-            this.feedbackList = builder.feedbackList;
-            this.userId = builder.userId;
-            this.firstName = builder.firstName;
-            this.lastName = builder.lastName;
-            this.email = builder.email;
-            this.password = builder.password;
-            this.notifications = builder.notifications;
+        public Builder copy(Student student) {
+            this.firstName = student.firstName;
+            this.lastName = student.lastName;
+            this.email = student.email;
+            this.password = student.password;
+            this.studentNumber = student.studentNumber;// Consider defensive copy if Notifications can change
             return this;
         }
 

@@ -1,10 +1,17 @@
 package za.ca.cput.domain;
 
-import java.util.Arrays;
+import jakarta.persistence.*;
 
+import java.util.Arrays;
+@Entity
 public class QRCode {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     private String data;
     private String format;
+    @Lob
     private byte[] image;
 
     protected QRCode() {

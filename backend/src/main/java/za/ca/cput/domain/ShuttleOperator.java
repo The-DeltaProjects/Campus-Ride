@@ -1,112 +1,131 @@
 package za.ca.cput.domain;
 
-import za.ca.cput.domain.enums.ShuttleOperatorStatus;
+import jakarta.persistence.*;
 
-import java.time.LocalDateTime;
+import java.util.List;
 
-public class ShuttleOperator extends User{
+@Entity
+@Table(name = "shuttle_operator")
+public class ShuttleOperator {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long operatorId;
-    private LocalDateTime hireDate;
+
+    private String firstName;
+    private String lastName;
+
+    @Column(unique = true, nullable = false)
+    private String email;
+    private String password;
+    private String licenseNumber;
+
+    @ManyToOne
+    @JoinColumn(name = "assigned_shuttle_id")
     private Shuttle assignedShuttle;
-    private ShuttleOperatorStatus status;
-    private String statusReason;
 
-    protected ShuttleOperator() {
-
+    public String getRole() {
+        return "SHUTTLE_OPERATOR";
     }
+
+    protected ShuttleOperator() {}
 
     private ShuttleOperator(Builder builder) {
         this.operatorId = builder.operatorId;
-        this.hireDate = builder.hireDate;
-        this.assignedShuttle = builder.assignedShuttle;
-        this.status = builder.status;
-        this.statusReason = builder.statusReason;
-        this.userId = builder.userId;
         this.firstName = builder.firstName;
         this.lastName = builder.lastName;
         this.email = builder.email;
         this.password = builder.password;
-        this.notifications = builder.notifications;
+        this.licenseNumber = builder.licenseNumber;
+        this.assignedShuttle = builder.assignedShuttle;
     }
 
     public Long getOperatorId() {
         return operatorId;
     }
 
-    public LocalDateTime getHireDate() {
-        return hireDate;
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public String getLicenseNumber() {
+        return licenseNumber;
     }
 
     public Shuttle getAssignedShuttle() {
         return assignedShuttle;
     }
 
-    public ShuttleOperatorStatus getStatus() {
-        return status;
+    public ShuttleOperator setOperatorId(Long operatorId) {
+        this.operatorId = operatorId;
+        return this;
     }
 
-    public String getStatusReason() {
-        return statusReason;
+    public ShuttleOperator setFirstName(String firstName) {
+        this.firstName = firstName;
+        return this;
+    }
+
+    public ShuttleOperator setLastName(String lastName) {
+        this.lastName = lastName;
+        return this;
+    }
+
+    public ShuttleOperator setEmail(String email) {
+        this.email = email;
+        return this;
+    }
+
+    public ShuttleOperator setPassword(String password) {
+        this.password = password;
+        return this;
+    }
+
+    public ShuttleOperator setLicenseNumber(String licenseNumber) {
+        this.licenseNumber = licenseNumber;
+        return this;
+    }
+
+
+    public ShuttleOperator setAssignedShuttle(Shuttle assignedShuttle) {
+        this.assignedShuttle = assignedShuttle;
+        return this;
     }
 
     @Override
     public String toString() {
         return "ShuttleOperator{" +
                 "operatorId=" + operatorId +
-                ", hireDate=" + hireDate +
-                ", assignedShuttle=" + assignedShuttle +
-                ", status=" + status +
-                ", statusReason='" + statusReason + '\'' +
-                ", userId=" + userId +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", email='" + email + '\'' +
-                ", password='" + password + '\'' +
-                ", notifications=" + notifications +
+                ", licenseNumber='" + licenseNumber + '\'' +
                 '}';
     }
 
     public static class Builder {
         private Long operatorId;
-        private LocalDateTime hireDate;
-        private Shuttle assignedShuttle;
-        private ShuttleOperatorStatus status;
-        private String statusReason;
-        private Long userId;
         private String firstName;
         private String lastName;
         private String email;
         private String password;
-        private Notifications notifications;
-
+        private String licenseNumber;
+        private Shuttle assignedShuttle;
 
         public Builder setOperatorId(Long operatorId) {
             this.operatorId = operatorId;
-            return this;
-        }
-
-        public Builder setHireDate(LocalDateTime hireDate) {
-            this.hireDate = hireDate;
-            return this;
-        }
-
-        public Builder setAssignedShuttle(Shuttle assignedShuttle) {
-            this.assignedShuttle = assignedShuttle;
-            return this;
-        }
-
-        public Builder setStatus(ShuttleOperatorStatus status) {
-            this.status = status;
-            return this;
-        }
-
-        public Builder setStatusReason(String statusReason) {
-            this.statusReason = statusReason;
-            return this;
-        }
-
-        public Builder setUserId(Long userId) {
-            this.userId = userId;
             return this;
         }
 
@@ -130,31 +149,30 @@ public class ShuttleOperator extends User{
             return this;
         }
 
-        public Builder setNotifications(Notifications notifications) {
-            this.notifications = notifications;
+        public Builder setLicenseNumber(String licenseNumber) {
+            this.licenseNumber = licenseNumber;
             return this;
         }
 
-
-
-        public Builder copy(Builder builder){
-            this.operatorId = builder.operatorId;
-            this.hireDate = builder.hireDate;
-            this.assignedShuttle = builder.assignedShuttle;
-            this.status = builder.status;
-            this.statusReason = builder.statusReason;
-            this.userId = builder.userId;
-            this.firstName = builder.firstName;
-            this.lastName = builder.lastName;
-            this.email = builder.email;
-            this.password = builder.password;
-            this.notifications = builder.notifications;
+        public Builder setAssignedShuttle(Shuttle assignedShuttle) {
+            this.assignedShuttle = assignedShuttle;
             return this;
+        }
+
+        public Builder copy(ShuttleOperator shuttleOperator){
+            return new Builder()
+                    .setOperatorId(this.operatorId)
+                    .setFirstName(this.firstName)
+                    .setLastName(this.lastName)
+                    .setEmail(this.email)
+                    .setPassword(this.password)
+                    .setLicenseNumber(this.licenseNumber)
+                    .setAssignedShuttle(this.assignedShuttle);
         }
 
         public ShuttleOperator build() {
             return new ShuttleOperator(this);
         }
+
     }
 }
-
