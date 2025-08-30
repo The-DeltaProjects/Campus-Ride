@@ -16,16 +16,15 @@
                 <img src="/login-display.png" alt="" class="form-image">
 
                 <div class="text-inputs">
-                    <input type="text" placeholder="Username" class="inputs">
-                    <input type="password" placeholder="Password" class="inputs">
+                    <input type="text" placeholder="Email" class="inputs" v-model="email">
+                    <input type="password" placeholder="Password" class="inputs" v-model="password">
                 </div>
-
                 <div class="icons">
                     <img src="/user-white.png" alt="" class="user-icon">
                     <img src="/lock-white.png" alt="" class="lock-icon">
                 </div>
 
-                <button class="Log-in">Log In</button>
+                <button class="Log-in" @click="login">Log In</button>
 
                 <h3 class="forgot-password">Forgot your password ? <p>reset</p>
                 </h3>
@@ -41,9 +40,57 @@
 
 <script>
 export default {
-    name: 'signup-Login'
-}
+    name: 'signup-Login',
+    data() {
+        return {
+            email: '',
+            password: '',
+            errorMessage: "",
+            role: 'student' // default role; you can add a dropdown for role selection
+        };
+    },
+    methods: {
+async login() {
+    if (!this.email || !this.password) {
+        alert("Please fill in both email and password");
+        return;
+    }
+
+    try {
+        const response = await fetch('http://localhost:8080/auth/login', {
+            method: 'POST',
+            headers: { 
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            },
+            body: JSON.stringify({
+                email: this.email,
+                password: this.password,
+                role: this.role
+            })
+        });
+
+        const data = await response.json();
+        
+        if (response.ok) {
+            localStorage.setItem('user', JSON.stringify({
+                role: data.role,
+                email: this.email,
+                isAuthenticated: true
+            }));
+
+            alert('Login successful');
+            this.$router.push({ name: 'Home' });
+        } else {
+            alert("Login failed: " + data.message);
+        }
+    } catch (err) {
+        alert("An error occurred: " + err.message);
+    }
+}}
+};
 </script>
+
 
 <style scoped>
 template,
