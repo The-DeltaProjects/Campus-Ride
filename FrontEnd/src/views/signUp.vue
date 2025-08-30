@@ -13,7 +13,6 @@
             <option value="student">Student</option>
         </select>
 
-        <p v-if="selectedRole">You selected: <b>{{ selectedRole }}</b></p>
 
         <div class="signup-form">
 
@@ -22,10 +21,10 @@
                 <img src="/signup-display2.png" alt="" class="signup-display">
 
                 <div class="text-inputs">
-                    <input type="text" placeholder="First name" class="inputs">
-                    <input type="password" placeholder="Second name" class="inputs">
-                    <input type="email" placeholder="Enter Email" class="inputs">
-                    <input type="password" placeholder="Enter Password" class="inputs">
+                    <input type="text" placeholder="First name" class="inputs" v-model="firstName">
+                    <input type="text" placeholder="Last name" class="inputs" v-model="lastName">
+                    <input type="email" placeholder="Enter Email" class="inputs" v-model="email">
+                    <input type="password" placeholder="Enter Password" class="inputs" v-model="password">
                 </div>
 
                 <div class="icons">
@@ -35,7 +34,7 @@
                     <img src="/key-white.png" alt="" class="key-icon">
                 </div>
 
-                <button class="sign-in">Sign Up</button>
+                <button class="sign-in" @click="signup">Sign Up</button>
 
 
             </div>
@@ -67,8 +66,58 @@
 
 <script>
 export default {
-    name: 'signup-Login'
+    name: 'SignupPage',
+    data() {
+        return {
+            firstName: '',
+            lastName: '',
+            email: '',
+            password: '',
+            errorMessage: "",
+            selectedRole: 'student'
+        };
+    },
+    methods: {
+        async signup() {
+  // Basic client-side validation
+  if (!this.firstName || !this.lastName || !this.email || !this.password) {
+    alert("Please fill in all fields");
+    return;
+  }
+
+  if (!this.selectedRole) {
+    alert("Please select a role");
+    return;
+  }
+
+  try {
+    const response = await fetch('http://localhost:8080/auth/signup', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        firstName: this.firstName,
+        lastName: this.lastName,
+        email: this.email,
+        password: this.password,
+        role: this.selectedRole.toUpperCase() // adjust to backend expectation
+      })
+    });
+
+    if (response.ok) {
+      alert('Signup successful!');
+      this.$router.push('/login'); // redirect to login
+    } else {
+      // handle backend errors
+      const errorText = await response.text();
+      alert("Signup failed: " + errorText);
+    }
+  } catch (err) {
+    alert("Error connecting to server");
+    console.error(err);
+  }
 }
+    }
+};
 </script>
 
 <style scoped>
