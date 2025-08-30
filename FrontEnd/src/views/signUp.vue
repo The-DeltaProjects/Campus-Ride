@@ -4,6 +4,17 @@
 
         <h2 class="signup-heading">Sign Up</h2>
 
+
+        <label for="role" class="choose">Choose Role:</label>
+        <select id="role" v-model="selectedRole" class="role" placeholder="Select a role">
+            <option disabled value="">-- Select a role --</option>
+            <option value="shuttle-operator">Shuttle Operator</option>
+            <option value="admin">Admin</option>
+            <option value="student">Student</option>
+        </select>
+
+        <p v-if="selectedRole">You selected: <b>{{ selectedRole }}</b></p>
+
         <div class="signup-form">
 
             <div class="content">
@@ -344,5 +355,42 @@ body {
     font-family: sans-serif;
     font-size: 27px;
     margin-left: -1%;
+}
+
+
+.role {
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    justify-content: flex-end;
+    top: 5%;
+    left: 9%;
+    width: 120px;
+    height: 40px;
+    border-radius: 30px;
+    border: none;
+    z-index: 99;
+    box-shadow: rgba(47, 47, 47, 0.392)-2px 3px;
+}
+
+.choose {
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    top: 7%;
+    left: 1%;
+    color: white;
+    z-index: 99;
+    font-size: 18px;
+}
+
+.role:hover {
+    cursor: pointer;
+
+}
+
+select {
+    margin: 10px 0;
+    padding: 5px;
 }
 </style>
