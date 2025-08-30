@@ -1,4 +1,9 @@
 <template>
+
+    <meta charSet="utf-8" />
+    <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
     <div class="main-frame">
 
         <router-link to="/signup"><button class="sign-up">Sign Up</button></router-link>
@@ -50,44 +55,45 @@ export default {
         };
     },
     methods: {
-async login() {
-    if (!this.email || !this.password) {
-        alert("Please fill in both email and password");
-        return;
-    }
+        async login() {
+            if (!this.email || !this.password) {
+                alert("Please fill in both email and password");
+                return;
+            }
 
-    try {
-        const response = await fetch('http://localhost:8080/auth/login', {
-            method: 'POST',
-            headers: { 
-                'Content-Type': 'application/json',
-                'Accept': 'application/json'
-            },
-            body: JSON.stringify({
-                email: this.email,
-                password: this.password,
-                role: this.role
-            })
-        });
+            try {
+                const response = await fetch('http://localhost:8080/auth/login', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        email: this.email,
+                        password: this.password,
+                        role: this.role
+                    })
+                });
 
-        const data = await response.json();
-        
-        if (response.ok) {
-            localStorage.setItem('user', JSON.stringify({
-                role: data.role,
-                email: this.email,
-                isAuthenticated: true
-            }));
+                const data = await response.json();
 
-            alert('Login successful');
-            this.$router.push({ name: 'Home' });
-        } else {
-            alert("Login failed: " + data.message);
+                if (response.ok) {
+                    localStorage.setItem('user', JSON.stringify({
+                        role: data.role,
+                        email: this.email,
+                        isAuthenticated: true
+                    }));
+
+                    alert('Login successful');
+                    this.$router.push({ name: 'Home' });
+                } else {
+                    alert("Login failed: " + data.message);
+                }
+            } catch (err) {
+                alert("An error occurred: " + err.message);
+            }
         }
-    } catch (err) {
-        alert("An error occurred: " + err.message);
     }
-}}
 };
 </script>
 
@@ -236,6 +242,9 @@ body {
 }
 
 .inputs {
+    text-align: left;
+    padding-top: 0px;
+    padding-left: 18px;
     width: 400px;
     height: 40px;
     border: none;

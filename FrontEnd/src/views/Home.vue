@@ -1,6 +1,9 @@
 <template>
 
     <link href="https://fonts.googleapis.com/css?family=Caprasimo&display=swap" rel="stylesheet">
+    <meta charSet="utf-8" />
+    <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
     <div class="home-page">
 

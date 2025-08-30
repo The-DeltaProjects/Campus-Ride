@@ -1,4 +1,9 @@
 <template>
+
+    <meta charSet="utf-8" />
+    <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
     <div class="main-frame">
 
 
@@ -79,43 +84,43 @@ export default {
     },
     methods: {
         async signup() {
-  // Basic client-side validation
-  if (!this.firstName || !this.lastName || !this.email || !this.password) {
-    alert("Please fill in all fields");
-    return;
-  }
+            // Basic client-side validation
+            if (!this.firstName || !this.lastName || !this.email || !this.password) {
+                alert("Please fill in all fields");
+                return;
+            }
 
-  if (!this.selectedRole) {
-    alert("Please select a role");
-    return;
-  }
+            if (!this.selectedRole) {
+                alert("Please select a role");
+                return;
+            }
 
-  try {
-    const response = await fetch('http://localhost:8080/auth/signup', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        firstName: this.firstName,
-        lastName: this.lastName,
-        email: this.email,
-        password: this.password,
-        role: this.selectedRole.toUpperCase() // adjust to backend expectation
-      })
-    });
+            try {
+                const response = await fetch('http://localhost:8080/auth/signup', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        firstName: this.firstName,
+                        lastName: this.lastName,
+                        email: this.email,
+                        password: this.password,
+                        role: this.selectedRole.toUpperCase() // adjust to backend expectation
+                    })
+                });
 
-    if (response.ok) {
-      alert('Signup successful!');
-      this.$router.push('/login'); // redirect to login
-    } else {
-      // handle backend errors
-      const errorText = await response.text();
-      alert("Signup failed: " + errorText);
-    }
-  } catch (err) {
-    alert("Error connecting to server");
-    console.error(err);
-  }
-}
+                if (response.ok) {
+                    alert('Signup successful!');
+                    this.$router.push('/login'); // redirect to login
+                } else {
+                    // handle backend errors
+                    const errorText = await response.text();
+                    alert("Signup failed: " + errorText);
+                }
+            } catch (err) {
+                alert("Error connecting to server");
+                console.error(err);
+            }
+        }
     }
 };
 </script>
@@ -296,6 +301,9 @@ body {
 }
 
 .inputs {
+    text-align: left;
+    padding-top: 0px;
+    padding-left: 18px;
     width: 400px;
     height: 40px;
     border: none;
